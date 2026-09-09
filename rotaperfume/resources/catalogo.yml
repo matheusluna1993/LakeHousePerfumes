@@ -1,0 +1,22 @@
+resources:
+  schemas:
+    bronze:
+      name: bronze
+      catalog_name: ${var.catalog}
+      comment: Camada de chegada dos dados brutos antes das transformações.
+    silver:
+      name: silver
+      catalog_name: ${var.catalog}
+      comment: Camada de dados tratados e conformados para análise.
+    gold:
+      name: gold
+      catalog_name: ${var.catalog}
+      comment: Camada de produtos de dados prontos para consumo.
+
+  volumes:
+    raw:
+      name: raw
+      catalog_name: ${var.catalog}
+      schema_name: bronze
+      volume_type: MANAGED
+      comment: Volume que preserva os arquivos recebidos dos sistemas de origem.
